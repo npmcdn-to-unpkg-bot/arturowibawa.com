@@ -1,0 +1,9 @@
+craft/app/
+craft/plugins/
+craft/storage/
+craft/config/db.php
+/gulpfile.js
+/node_modules
+/package.json
+html/css/styles.css
+html/scss

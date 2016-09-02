@@ -1,0 +1,24 @@
+{#
+ # Skeleton template
+ # ------------------
+ # Main template structure. Insert stuff in {% block main %}.
+ #
+ #}
+
+{% extends 'base' %}
+
+{% block body %}
+
+	{% include '_layout/header' %}
+	
+	<main>
+		{% block main %}
+			<p>If you see me, you haven’t set your <code>{% verbatim %}{% block main %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+		{% endblock %}
+	</main>	
+	
+	{% block foot %}
+	{% include '_layout/footer' %}
+	{% endblock %}
+
+{% endblock %}

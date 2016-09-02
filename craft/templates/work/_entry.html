@@ -1,0 +1,124 @@
+{#
+ # Work entries template
+ # -----------------------
+ #
+ #}
+
+ {% extends "structure" %}
+
+{% set title = entry.title %}
+
+ {% block main %}
+ 	{# hero image module #}
+	{% set featuredImg = entry.featuredImage.first() %}
+	<div class='hero hero__fixed' style='background-image: url({{ featuredImg.getUrl() }});'>
+
+	 	<div class='container'>
+			<h1 class='hero__intro--work'>{{ entry.introCopy }}</h1>
+			<h2 class='hero__intro--client'>{{ entry.workClient }}</h2>
+	 	</div>
+
+	</div>
+	{# description module #}
+	<div class='project'>
+		
+		<div class='project__wrapper'>
+			<div class='container clearfix'>
+
+				<div class='project__type'>
+					<h4>— Project Type</h4>
+					<h2>{{ entry.workType }}</h2>
+				</div>
+
+				<div class='project__description'>
+					<h4>— The Challenge</h4>
+					<h3>{{ entry.workDescription }}</h3>
+				</div>
+
+				<div class='project__link'>
+					<h4>— In The Wild</h4>
+					<a class='btn btn--solid project__link--btn' href='{{ entry.workUrl }}' target=_blank>View It Online<span<i class="fa fa-chevron-right"></i></a>
+				</div>
+
+		 	</div>
+		</div> 
+
+	</div>
+
+	<div class='case'>
+
+		<div class='container case__container'>
+			
+			{% for block in entry.workContent %}
+			{% switch block.type %}
+			
+			{% case "workImage" %}
+			{% set screenshot = block.workScreenshots.first() %}
+			{% if block.imagePosition in ['left', 'right'] %}
+
+				<div class='case__img case__img--half reveal'>
+					<img src='{{ screenshot.getUrl() }}'>
+				</div>
+				
+			{% elseif block.imagePosition == 'full' %}
+				
+				<div class='case__img case__img--full reveal'>
+					<img src='{{ screenshot.getUrl() }}'>
+				</div>				
+							
+			{% endif %}
+
+			{% case "workCopy" %}	
+			<div class='case__copy reveal'>
+				<h1>{{ block.headerCopy }}</h1>
+				{{ block.bodyCopy }}
+			</div>
+
+			{% case "spacer" %}
+			{% if block.workSpacer %}
+				<div class='case__spacer--on'></div>
+				{% else %}
+				<div class='case__spacer--off'></div>
+			{% endif %}
+			
+			{% endswitch %}
+			{% endfor %}
+
+			<div class='case__nav'>
+
+				{% set params = { section: 'work' } %}
+
+				{% set prevEntry = entry.prevSibling(params) %}
+				{% set nextEntry = entry.nextSibling(params) %}
+
+				{% if prevEntry %}
+				<a class='btn btn--previous' href='{{ prevEntry.url }}'>
+					<h4 class='btn--hide'>Previous Project</h4>
+					<h2 class='btn--hide'>{{ prevEntry.title }}</h2>
+					<i class='fa fa-chevron-left'></i> 
+				</a>
+				{% endif %} 	
+
+				{% if nextEntry %}
+				<a class='btn btn--next' href='{{ nextEntry.url }}'>
+					<h4 class='btn--hide'>Next Project</h4>
+					<h2 class='btn--hide'>{{ nextEntry.title }}</h2> 
+					<i class='fa fa-chevron-right'></i>
+				</a>
+				{% endif %}
+						
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class='pre-footer pre-footer--workEntry'>
+
+		<h1>Thanks for watching!</h1>
+
+		<a class='btn btn--solid btn--home' href='{{ url(craft.request.firstSegment) }}'>let's go back</a>
+
+	</div>
+
+ {% endblock %}

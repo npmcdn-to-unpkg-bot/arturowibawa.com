@@ -1,0 +1,51 @@
+{#
+ # Infographics template
+ # -----------------------
+ #
+ #}
+{% extends "structure" %}
+
+{% set title = entry.title %}
+
+{% block main %}
+
+	{# hero image module #}
+	{% set featuredImg = entry.featuredImage.first() %}
+	<div class='hero hero__fixed' style='background-image: url({{ featuredImg.getUrl() }});'>
+
+	 	<div class='container'>
+			<h1 class='hero__intro--work'>{{ entry.introCopy }}</h1>
+			<h2 class='hero__intro--client'>{{ entry.workClient }}</h2>
+	 	</div>
+
+	</div>
+
+	<div class='infographics'>
+
+		<div class="container infographics__container">
+
+			<div class='grid'>
+
+				<div class=grid-sizer></div>
+				
+				{% for image in craft.entries.section('infographicsImages').limit(20) %}	
+					<div class="grid-item">
+						<img src='{{ image.infographicImage.first().getUrl() }}'>
+					</div>
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class='pre-footer pre-footer--workEntry'>
+
+		<h1>Thanks for watching!</h1>
+
+		<a class='btn btn--solid btn--home' href='work'>let's go back</a>
+
+	</div>
+
+{% endblock %}
