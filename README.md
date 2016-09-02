@@ -1,1 +1,1 @@
-Portfolio site with CRAFT CMS
+Personal site with CRAFT CMS workflow.
