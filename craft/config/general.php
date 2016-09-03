@@ -26,8 +26,8 @@ return array(
 		// 'devMode' => true,
 		'cpTrigger' => 'login',
 		'environmentVariables' => array(
-			'assetsBaseUrl' => 'http://arturowibawa.com/images/',
-			'assetsBasePath' => 'http://arturowibawa.com/html/images/',
+			'assetsBaseUrl' => 'http://arturowibawa.com/images',
+			'assetsBasePath' => '/var/www/arturowibawa.com/html/images',
 		)
 	)
 
