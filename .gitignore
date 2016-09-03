@@ -7,4 +7,3 @@ craft/config/db.php
 /package.json
 html/css/styles.css
 html/scss
-craft/templates/base.html

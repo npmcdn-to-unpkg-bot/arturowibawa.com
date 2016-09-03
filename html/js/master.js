@@ -118,22 +118,3 @@ $(document).ready(function() {
 	$(window).scroll(hideHero);
 
 }());
-
-/* DAYS CALLOUT CYCLE */ 
-(function() {
-	
-	var date = new Date();
-	var day = new Array(7);
-
-	day[0] = "Resting";
-	day[1] = "wake up!";
-	day[2] = "hm Tacos";
-	day[3] = "Humpday";
-	day[4] = "Hurrah!";
-	day[5] = "TGIF!";
-	day[6] = "Chillin";
-
-	var quote = day[date.getDay()];
-	document.getElementById("hero__intro").innerHTML = quote;
-
-}());
