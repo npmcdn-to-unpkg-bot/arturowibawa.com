@@ -6,11 +6,16 @@
     </svg>
   </a>
 
+  <span class='share-btn-bg'></span>
+  <button class='share-btn'><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+
   <div class='burger'>
     <div class='burger__patty'></div>
     <div class='burger__patty'></div>
     <div class='burger__patty'></div>
   </div>
+
+  {# MENU OVERLAY #}
   <nav class='menu'>
     <div class='menu__list'>
       <ul class="menu__item">
@@ -27,4 +32,26 @@
       </ul>
     </div>
   </nav>
+
+  {# SHARE DROP-DOWN #}
+  <div class="share-dropdown">
+
+    <span class="share-dropdown-title">SHARE ME</span>
+
+    <ul class="share-dropdown-list">
+      <li class="share-dropdown-item">
+        <a target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=http%3A//www.arturowibawa.com/'><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      </li>
+      <li class="share-dropdown-item">
+        <a target='_blank' href='https://twitter.com/home?status=Arturo%20Wibawa%20%C2%B7%20Visual%20Designer%20Portfolio%20http%3A//www.arturowibawa.com/'><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      </li>
+      <li class="share-dropdown-item">
+        <a target='_blank' href='https://plus.google.com/share?url=http%3A//www.arturowibawa.com/'><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+      </li>
+    </ul>
+
+    <span class='share-btn--close-bg'></span>
+    <button class='share-btn--close'><i class="fa fa-times" aria-hidden="true"></i></button>
+  </div>
+
 </header>
